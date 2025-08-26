@@ -95,6 +95,10 @@ async function loadOrders() {
             return;
         }
         
+        // Crear contenedor con estilo personalizado
+        const container = document.createElement('div');
+        container.className = 'custom-table-container';
+        
         data.slice(0, 10).forEach((order, index) => {
             const div = document.createElement('div');
             div.className = 'px-1 py-0 mb-1 border-bottom';
@@ -119,8 +123,10 @@ async function loadOrders() {
                     </div>
                 </div>
             `;
-            table.appendChild(div);
+            container.appendChild(div);
         });
+        
+        table.appendChild(container);
         
     } catch (error) {
         console.error('Error loading orders:', error);
@@ -266,6 +272,10 @@ async function loadReservations(selectedDate = null) {
         table.innerHTML = '';
         const sorted = Array.from(slotMap.entries()).sort(([a], [b]) => a.localeCompare(b));
         
+        // Crear contenedor con estilo personalizado
+        const container = document.createElement('div');
+        container.className = 'custom-table-container';
+        
         sorted.forEach(([, slot]) => {
             const div = document.createElement('div');
             div.className = 'px-1 py-0 mb-1 border-bottom';
@@ -292,8 +302,10 @@ async function loadReservations(selectedDate = null) {
                     </div>
                 `;
             }
-            table.appendChild(div);
+            container.appendChild(div);
         });
+        
+        table.appendChild(container);
         
     } catch (error) {
         console.error('Error loading reservations:', error);

@@ -1,7 +1,7 @@
 /* Estilos base */
 body {
-    background-color: #f1f3f4;
-    color: #2d3748;
+    background-color: #cbcbd8;
+    color: #f7fafc;
     padding: 5px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 0.875rem;
@@ -9,10 +9,24 @@ body {
     min-height: 100vh;
 }
 
+/* Header profesional */
+.header-container {
+    background: rgba(74, 85, 104, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #4a5568;
+}
+
+
 /* Tipografía */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     color: #1a202c;
+}
+.header-container h1, .header-container h2, .header-container h3, 
+.header-container h4, .header-container h5, .header-container h6 {
+    color: #ffffff;
 }
 h1 { font-size: 0.875rem; }
 
@@ -20,16 +34,17 @@ h1 { font-size: 0.875rem; }
 .card {
     margin-bottom: 4px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid #000000;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
+    overflow: hidden;
 }
 .card-header {
     font-weight: 600;
-    background-color: rgba(247, 250, 252, 0.8);
-    color: #2d3748;
-    border-bottom: 1px solid #e2e8f0;
+    background-color: rgba(74, 85, 104, 0.8);
+    color: #f7fafc;
+    border-bottom: 1px solid #000000;
     padding: 0.5rem 0.75rem;
 }
 
@@ -51,38 +66,43 @@ h1 { font-size: 0.875rem; }
     padding: 0.5rem;
 }
 
-/* Tablas */
+/* Tablas - Enfoque completamente diferente */
 .table-responsive {
-    border-radius: 0;
-    overflow: visible;
     background: transparent;
+    border: none;
     box-shadow: none;
+    overflow: visible;
 }
+
+/* Contenedor personalizado para datos tabulares */
+.custom-table-container {
+    border-radius: 12px;
+    overflow: hidden;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    border: none;
+}
+
 .table {
     font-size: 0.875rem;
-    border-radius: 20px;
-    overflow: hidden;
-    background: rgba(196, 196, 196, 0.9);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    border-collapse: separate;
-    border-spacing: 0;
+    background: transparent;
+    border: none;
+    margin-bottom: 0;
+    border-radius: 0;
 }
 .table thead th {
     font-weight: 600;
     color: #4a5568;
-    border-bottom: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
+    background-color: transparent;
     padding: 0.375rem 0.5rem;
 }
 .table td {
     padding: 0.375rem 0.5rem;
     vertical-align: middle;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
+    background-color: transparent;
 }
 .table-sm th, .table-sm td { padding: 0.25rem 0.5rem; }
 
@@ -108,6 +128,14 @@ h1 { font-size: 0.875rem; }
 .btn-outline-secondary:hover {
     background-color: #f7fafc;
     color: #2d3748;
+}
+.header-container .btn-outline-secondary {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+.header-container .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
 /* Formularios */
@@ -206,3 +234,11 @@ h1 { font-size: 0.875rem; }
 [data-bs-theme="dark"] .available-slot td {
     font-weight: 500;
 }
+
+/* Header modo oscuro */
+[data-bs-theme="dark"] .header-container {
+    background: rgba(45, 55, 72, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid #4a5568;
+}
+
