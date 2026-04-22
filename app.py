@@ -19,7 +19,8 @@ GOOGLE_SHEETS_CREDENTIALS = os.getenv('GOOGLE_SHEETS_CREDENTIALS')
 GOOGLE_CALENDAR_ID = os.getenv('GOOGLE_CALENDAR_ID')
 NOCODB_API_KEY = os.getenv('NOCODB_API_KEY')
 NOCODB_BASE_URL = "https://app.nocodb.com"  # Cambia esto por tu URL base de NocoDB si es diferente
-NOCODB_TABLE_ID = "mm5d1hlr7jmcgq4"  # ID de tu tabla en NocoDB
+NOCODB_TABLE_ID = os.getenv('NOCODB_TABLE_ID', 'mm5d1hlr7jmcgq4')
+GOOGLE_SHEETS_ID = os.getenv('GOOGLE_SHEETS_ID')
 NOCODB_API_URL = f"{NOCODB_BASE_URL.rstrip('/')}/api/v2/tables/{NOCODB_TABLE_ID}"  # Sin /records al final
 
 # Verificar variables de entorno requeridas
@@ -66,7 +67,7 @@ def get_orders():
         if not client:
             return jsonify({"error": "Failed to initialize Google Sheets"}), 500
             
-        sheet = client.open_by_key("1EHbcN_L1US3zvnNxZwHyxMISndB8YYry_nhE5nJ3Xy8").sheet1
+        sheet = client.open_by_key(GOOGLE_SHEETS_ID).sheet1
         records = sheet.get_all_records()
         return jsonify(records)
     except Exception as e:
