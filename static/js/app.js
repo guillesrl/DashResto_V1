@@ -1,3 +1,9 @@
+function esc(value) {
+    const d = document.createElement('div');
+    d.textContent = value == null ? '' : String(value);
+    return d.innerHTML;
+}
+
 // Dark mode toggle
 function setupDarkMode() {
     const toggle = document.getElementById('darkModeToggle');
@@ -110,16 +116,16 @@ async function loadOrders() {
             div.innerHTML = `
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center flex-grow-1">
-                        <div class="fw-bold me-2">${clientName}</div>
+                        <div class="fw-bold me-2">${esc(clientName)}</div>
                         <div class="text-muted flex-grow-1">
-                            <span class="food-short">${shortFood}</span>
-                            <span class="food-full" style="display: none;">${foodText}</span>
+                            <span class="food-short">${esc(shortFood)}</span>
+                            <span class="food-full" style="display: none;">${esc(foodText)}</span>
                             ${foodText.length > 20 ? '<button class="btn btn-sm ms-1" style="font-size: 0.7rem; padding: 0.1rem 0.3rem;" onclick="toggleFood(this)">Mostrar</button>' : ''}
                         </div>
                     </div>
                     <div class="text-end ms-2">
                         <span class="me-2">${order.Total ? `$${parseFloat(order.Total).toFixed(2)}` : ''}</span>
-                        <span class="badge bg-${getStatusBadgeClass(order.Estado)}">${order.Estado || 'Pendiente'}</span>
+                        <span class="badge bg-${getStatusBadgeClass(order.Estado)}">${esc(order.Estado || 'Pendiente')}</span>
                     </div>
                 </div>
             `;
@@ -180,11 +186,11 @@ async function loadMenu() {
                     <div class="d-flex align-items-center flex-grow-1">
                         ${badge ? `<div class="me-2">${badge}</div>` : ''}
                         <div class="text-truncate">
-                            <span class="fw-medium">${name}</span>
-                            ${desc ? `<span class="text-muted small ms-2">${desc}</span>` : ''}
+                            <span class="fw-medium">${esc(name)}</span>
+                            ${desc ? `<span class="text-muted small ms-2">${esc(desc)}</span>` : ''}
                         </div>
                     </div>
-                    <div class="text-nowrap ms-2 fw-medium">${price}</div>
+                    <div class="text-nowrap ms-2 fw-medium">${esc(price)}</div>
                 `;
                 container.appendChild(div);
             });
@@ -285,20 +291,20 @@ async function loadReservations(selectedDate = null) {
                 div.innerHTML = `
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center flex-grow-1">
-                            <div class="fw-bold me-2">${slot.time}</div>
-                            <div class="text-muted">${slot.description}</div>
+                            <div class="fw-bold me-2">${esc(slot.time)}</div>
+                            <div class="text-muted">${esc(slot.description)}</div>
                         </div>
-                        <span class="badge bg-success ms-2">${slot.name}</span>
+                        <span class="badge bg-success ms-2">${esc(slot.name)}</span>
                     </div>
                 `;
             } else {
                 div.innerHTML = `
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center flex-grow-1">
-                            <div class="fw-bold me-2">${slot.time}</div>
-                            <div class="text-muted">${slot.description}</div>
+                            <div class="fw-bold me-2">${esc(slot.time)}</div>
+                            <div class="text-muted">${esc(slot.description)}</div>
                         </div>
-                        <div class="ms-2">${slot.name}</div>
+                        <div class="ms-2">${esc(slot.name)}</div>
                     </div>
                 `;
             }
