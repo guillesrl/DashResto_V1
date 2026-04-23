@@ -63,13 +63,14 @@ Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
 ```env
 # Google Sheets (Pedidos)
 GOOGLE_SHEETS_CREDENTIALS='{"type": "service_account", ...}'
+GOOGLE_SHEETS_ID='your-spreadsheet-id'
 
 # Google Calendar (Reservas)
 GOOGLE_CALENDAR_ID='tu_calendario@group.calendar.google.com'
 
 # NocoDB (Menú)
 NOCODB_API_KEY='tu_api_key_de_nocodb'
-NOCODB_API_URL='https://app.nocodb.com/api/v2/tables/.../records'
+NOCODB_TABLE_ID='your-table-id'
 ```
 
 ### 2. Configuración de APIs
@@ -87,7 +88,7 @@ NOCODB_API_URL='https://app.nocodb.com/api/v2/tables/.../records'
 #### NocoDB
 1. Crea una tabla en NocoDB con la estructura del menú
 2. Genera un token de API
-3. Configura las variables `NOCODB_API_KEY` y `NOCODB_API_URL`
+3. Configura las variables `NOCODB_API_KEY` y `NOCODB_TABLE_ID`
 
 ## 🚀 Instalación y Ejecución
 
