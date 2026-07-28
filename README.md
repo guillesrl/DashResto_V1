@@ -161,37 +161,3 @@ Las contribuciones son bienvenidas. Por favor, envía un Pull Request o crea un 
 ## 📧 Contacto
 
 Para soporte o consultas, por favor contacta al equipo de desarrollo.
-1. Ve a tu panel de control de NocoDB
-2. Genera un token de API
-3. Copia el token a la variable `NOCODB_API_KEY` en `.env`
-
-## Uso
-
-1. Inicia el servidor:
-   ```bash
-   python app.py
-   ```
-
-2. Abre tu navegador y ve a:
-   ```
-   http://localhost:5000
-   ```
-
-## Estructura del Proyecto
-
-```
-dashboard-restaurante/
-├── app.py                 # Aplicación principal de Flask
-├── requirements.txt       # Dependencias de Python
-├── .env                  # Variables de entorno (no incluido en el control de versiones)
-├── .env.example          # Plantilla de variables de entorno
-├── static/               # Archivos estáticos
-│   └── js/
-│       └── app.js        # Código JavaScript del frontend
-└── templates/
-    └── index.html        # Plantilla HTML principal
-```
-
-## Licencia
-
-MIT
